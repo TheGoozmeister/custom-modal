@@ -1,6 +1,8 @@
-const { useState, useEffect } = require("react");
+import React, { useState, useEffect } from "react";
+import "./customModal.css"
 
-function CustomModal({message, isVisible=true}) {
+
+function CustomModal({ message, isVisible = true, onClose }) {
 
     const [showModal, setShowModal] = useState(isVisible);
 
@@ -10,7 +12,10 @@ function CustomModal({message, isVisible=true}) {
 
     const handleEscape = () => {
         setShowModal(false);
-    }
+        if (onClose) {
+            onClose();
+        }
+    };
     
     if (!showModal) {
         return null;
@@ -23,11 +28,11 @@ function CustomModal({message, isVisible=true}) {
                     {message}
                 </div>
                 <div className="customModal__box__escape" onClick={handleEscape}>
-                    X
+                    Ok
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 

@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# React Custom Modal Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a custom modal component for displaying modal on top of a page. 
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To install this modal, open a terminal and enter the following : 
 
-### `npm start`
+```bash 
+npm install custom-modal-pastor 
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+To use this modal, import it in top of your code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+import CustomModal from "custom-modal-pastor";
+```
 
-### `npm run build`
+### Basic Usage Example
+```javascript
+<CustomModal
+    message='Hello World'
+    isVisible={true}
+    onClose={()=>toggleModal(false)}
+/>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Properties
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Prop       | Type     | Default Value | Description                                                                 |
+|------------|----------|---------------|-----------------------------------------------------------------------------|
+| `message`  | `string` | `""`          | The message that will be displayed inside the modal.                        |
+| `isVisible`| `boolean`| `true`        | Controls whether the modal is visible.                                      |
+| `onClose`  | `function`| `undefined`  | Function to be called when the modal is closed. Typically used to update the state controlling the modal visibility. |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Customization
 
-### `npm run eject`
+You can customize the modal by adding a classname to the component.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Additional Notes 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The CustomModal component is controlled via the isVisible prop. Make sure to bind this prop to a state variable in the parent component to dynamically show or hide the modal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The onClose function is invoked when the user clicks the "Ok" button. You can use this to update your state and close the modal.
